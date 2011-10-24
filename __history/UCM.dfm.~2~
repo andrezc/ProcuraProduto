@@ -1,0 +1,353 @@
+object CM: TCM
+  OldCreateOrder = False
+  Height = 218
+  Width = 284
+  object ib_database: TIB_Database
+    PasswordStorage = psNotSecure
+    SQLDialect = 3
+    Params.Strings = (
+      'PATH=C:\Arquivos de Programas\Focus\FOCUS.FOC'
+      'USER NAME=SYSDBA'
+      'SQL DIALECT=3')
+    Isolation = tiCommitted
+    Left = 40
+    Top = 24
+    SavedPassword = '.JuMbLe.01.432B0639073E0E4B49'
+  end
+  object ib_transaction: TIB_Transaction
+    IB_Connection = ib_database
+    Isolation = tiCommitted
+    Left = 160
+    Top = 24
+  end
+  object Provider: TDataSetProvider
+    DataSet = IBOQuery
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 40
+    Top = 96
+  end
+  object IBOQuery: TIBOQuery
+    Params = <>
+    Active = True
+    DatabaseName = 'C:\Arquivos de Programas\Focus\FOCUS.FOC'
+    IB_Connection = ib_database
+    IB_Transaction = ib_transaction
+    RecordCountAccurate = True
+    SQL.Strings = (
+      'SELECT * FROM PRODUTOS')
+    FieldOptions = []
+    Left = 96
+    Top = 24
+  end
+  object CDS: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'Provider'
+    Left = 96
+    Top = 96
+    object intgrfldCDSCD_PRODUTO: TIntegerField
+      FieldName = 'CD_PRODUTO'
+      Required = True
+    end
+    object strngfldCDSNM_PRODUTO: TStringField
+      FieldName = 'NM_PRODUTO'
+      Size = 45
+    end
+    object strngfldCDSCOD_BARRAS: TStringField
+      FieldName = 'COD_BARRAS'
+      Size = 13
+    end
+    object intgrfldCDSCD_GRUPO: TIntegerField
+      FieldName = 'CD_GRUPO'
+    end
+    object strngfldCDSUNIDADE: TStringField
+      FieldName = 'UNIDADE'
+      Size = 2
+    end
+    object strngfldCDSCX_COD_BARRA_CAIXA: TStringField
+      FieldName = 'CX_COD_BARRA_CAIXA'
+      Size = 13
+    end
+    object bcdfldCDSCX_UNDCONVERSAO: TBCDField
+      FieldName = 'CX_UNDCONVERSAO'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPESOLIQUIDO: TBCDField
+      FieldName = 'PESOLIQUIDO'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPESOBRUTO: TBCDField
+      FieldName = 'PESOBRUTO'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSDESCONTOMAXIMO: TBCDField
+      FieldName = 'DESCONTOMAXIMO'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSCOMISSAO: TBCDField
+      FieldName = 'COMISSAO'
+      Precision = 18
+      Size = 3
+    end
+    object smlntfldCDSBAL_COD_BALANCA: TSmallintField
+      FieldName = 'BAL_COD_BALANCA'
+    end
+    object strngfldCDSBAL_GERARCODBALANCA: TStringField
+      FieldName = 'BAL_GERARCODBALANCA'
+      Size = 1
+    end
+    object strngfldCDSLOCALIZACAO: TStringField
+      FieldName = 'LOCALIZACAO'
+    end
+    object strngfldCDSCLASSFISCAL: TStringField
+      FieldName = 'CLASSFISCAL'
+      Size = 12
+    end
+    object bcdfldCDSIPI: TBCDField
+      FieldName = 'IPI'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPRECOCUSTO: TBCDField
+      FieldName = 'PRECOCUSTO'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSMARGEM: TBCDField
+      FieldName = 'MARGEM'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPRECOVENDA: TBCDField
+      FieldName = 'PRECOVENDA'
+      Precision = 18
+      Size = 3
+    end
+    object dtfldCDSDT_ULTIMOREAJUSTE: TDateField
+      FieldName = 'DT_ULTIMOREAJUSTE'
+    end
+    object bcdfldCDSPRECOVENDAANTERIOR: TBCDField
+      FieldName = 'PRECOVENDAANTERIOR'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPRECOCUSTOANTERIOR: TBCDField
+      FieldName = 'PRECOCUSTOANTERIOR'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPDV_PRECOVENDA: TBCDField
+      FieldName = 'PDV_PRECOVENDA'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSESTOQUEMINIMO: TBCDField
+      FieldName = 'ESTOQUEMINIMO'
+      Precision = 18
+      Size = 3
+    end
+    object strngfldCDSINATIVO: TStringField
+      FieldName = 'INATIVO'
+      Size = 1
+    end
+    object mfldCDSOBS: TMemoField
+      FieldName = 'OBS'
+      BlobType = ftMemo
+      Size = 8
+    end
+    object blbfldCDSFOTO: TBlobField
+      FieldName = 'FOTO'
+      Size = 8
+    end
+    object intgrfldCDSCD_SIMILAR: TIntegerField
+      FieldName = 'CD_SIMILAR'
+    end
+    object dtmfldCDSDT_CADASTRO: TDateTimeField
+      FieldName = 'DT_CADASTRO'
+    end
+    object dtmfldCDSULTIMAALTERACAO: TDateTimeField
+      FieldName = 'ULTIMAALTERACAO'
+    end
+    object strngfldCDSFABRICANTE: TStringField
+      FieldName = 'FABRICANTE'
+      Size = 30
+    end
+    object strngfldCDSAPLICACAO: TStringField
+      FieldName = 'APLICACAO'
+      Size = 150
+    end
+    object strngfldCDSTRESCASAS: TStringField
+      FieldName = 'TRESCASAS'
+      Size = 1
+    end
+    object strngfldCDSDIMENSOES: TStringField
+      FieldName = 'DIMENSOES'
+      Size = 50
+    end
+    object bcdfldCDSCX_VALORCAIXAPDV: TBCDField
+      FieldName = 'CX_VALORCAIXAPDV'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSQUANTTROCA: TBCDField
+      FieldName = 'QUANTTROCA'
+      Precision = 18
+      Size = 3
+    end
+    object strngfldCDSEXPORTAR: TStringField
+      FieldName = 'EXPORTAR'
+      Size = 1
+    end
+    object strngfldCDSPRECOPROPESO: TStringField
+      FieldName = 'PRECOPROPESO'
+      Size = 1
+    end
+    object strngfldCDSDESCRICAO_ABREV: TStringField
+      FieldName = 'DESCRICAO_ABREV'
+    end
+    object strngfldCDSCODIGO02: TStringField
+      FieldName = 'CODIGO02'
+    end
+    object strngfldCDSCODIGO03: TStringField
+      FieldName = 'CODIGO03'
+    end
+    object strngfldCDSCODIGO04: TStringField
+      FieldName = 'CODIGO04'
+    end
+    object bcdfldCDSCUSTOMEDIO: TBCDField
+      FieldName = 'CUSTOMEDIO'
+      Precision = 18
+      Size = 3
+    end
+    object strngfldCDSTIPOCUSTO: TStringField
+      FieldName = 'TIPOCUSTO'
+      Size = 1
+    end
+    object bcdfldCDSULTIMOCUSTO: TBCDField
+      FieldName = 'ULTIMOCUSTO'
+      Precision = 18
+      Size = 3
+    end
+    object strngfldCDSUND_FRACIONADA: TStringField
+      FieldName = 'UND_FRACIONADA'
+      Size = 1
+    end
+    object bcdfldCDSUNDCONVERSAOENTRADA: TBCDField
+      FieldName = 'UNDCONVERSAOENTRADA'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSMARGEM2: TBCDField
+      FieldName = 'MARGEM2'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSMARGEM3: TBCDField
+      FieldName = 'MARGEM3'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSMARGEM4: TBCDField
+      FieldName = 'MARGEM4'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSMARGEM5: TBCDField
+      FieldName = 'MARGEM5'
+      Precision = 18
+      Size = 3
+    end
+    object dtmfldCDSDT_EXP_PALM: TDateTimeField
+      FieldName = 'DT_EXP_PALM'
+    end
+    object bcdfldCDSPRECO2: TBCDField
+      FieldName = 'PRECO2'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPRECO3: TBCDField
+      FieldName = 'PRECO3'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPRECO4: TBCDField
+      FieldName = 'PRECO4'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSPRECO5: TBCDField
+      FieldName = 'PRECO5'
+      Precision = 18
+      Size = 3
+    end
+    object strngfldCDSCONTROLANUMSERIE: TStringField
+      FieldName = 'CONTROLANUMSERIE'
+      Size = 1
+    end
+    object strngfldCDSUSAR_CD_VENDA_UNICO: TStringField
+      FieldName = 'USAR_CD_VENDA_UNICO'
+      Size = 1
+    end
+    object intgrfldCDSCD_VENDA_UNICO: TIntegerField
+      FieldName = 'CD_VENDA_UNICO'
+    end
+    object smlntfldCDSREF_PROMOCAO: TSmallintField
+      FieldName = 'REF_PROMOCAO'
+    end
+    object strngfldCDSIMPORTWEB: TStringField
+      FieldName = 'IMPORTWEB'
+      Size = 1
+    end
+    object dtmfldCDSDT_SINC_WEB: TDateTimeField
+      FieldName = 'DT_SINC_WEB'
+    end
+    object bcdfldCDSALIQUOTA: TBCDField
+      FieldName = 'ALIQUOTA'
+      Precision = 18
+      Size = 3
+    end
+    object bcdfldCDSFRETECHEGADA: TBCDField
+      FieldName = 'FRETECHEGADA'
+      Precision = 18
+      Size = 2
+    end
+    object bcdfldCDSFRETESAIDA: TBCDField
+      FieldName = 'FRETESAIDA'
+      Precision = 18
+      Size = 2
+    end
+    object intgrfldCDSCD_EMPRESA: TIntegerField
+      FieldName = 'CD_EMPRESA'
+    end
+    object dtmfldCDSDT_SINC_SELLER: TDateTimeField
+      FieldName = 'DT_SINC_SELLER'
+    end
+    object strngfldCDSPRODUCAOPROPRIA: TStringField
+      FieldName = 'PRODUCAOPROPRIA'
+      Size = 1
+    end
+    object smlntfldCDSTIPO_ITEM: TSmallintField
+      FieldName = 'TIPO_ITEM'
+    end
+    object strngfldCDSCST1: TStringField
+      FieldName = 'CST1'
+      Size = 3
+    end
+    object strngfldCDSCST2: TStringField
+      FieldName = 'CST2'
+      Size = 3
+    end
+    object strngfldCDSCST3: TStringField
+      FieldName = 'CST3'
+      Size = 3
+    end
+    object strngfldCDSCST4: TStringField
+      FieldName = 'CST4'
+      Size = 3
+    end
+  end
+end

@@ -1,0 +1,5 @@
+object CM: TCM
+  OldCreateOrder = False
+  Height = 218
+  Width = 284
+end

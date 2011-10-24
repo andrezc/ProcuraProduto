@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/10/10 15:26:08.140.pas,D:\RAD Studio\Projects\Unit1.pas=D:\Focus\ProcuraProduto\Principal.pas</Transaction>
+    <Transaction>2011/10/10 15:26:08.140.dfm,D:\RAD Studio\Projects\Unit1.dfm=D:\Focus\ProcuraProduto\Principal.dfm</Transaction>
+    <Transaction>2011/10/10 15:26:27.765.dproj,D:\RAD Studio\Projects\Project1.dproj=D:\Focus\ProcuraProduto\Main.dproj</Transaction>
+    <Transaction>2011/10/10 16:35:46.593.pas,D:\Focus\ProcuraProduto\Unit2.pas=D:\Focus\ProcuraProduto\UPesquisa.pas</Transaction>
+    <Transaction>2011/10/10 16:35:46.593.dfm,D:\Focus\ProcuraProduto\Unit2.dfm=D:\Focus\ProcuraProduto\UPesquisa.dfm</Transaction>
+    <Transaction>2011/10/10 16:42:34.890.pas,D:\Focus\ProcuraProduto\Unit1.pas=D:\Focus\ProcuraProduto\UCM.pas</Transaction>
+    <Transaction>2011/10/10 16:42:34.890.dfm,D:\Focus\ProcuraProduto\Unit1.dfm=D:\Focus\ProcuraProduto\UCM.dfm</Transaction>
+    <Transaction>2011/10/14 11:15:34.734.pas,D:\Focus\ProcuraProduto\Unit2.pas=D:\Focus\ProcuraProduto\UBanco.pas</Transaction>
+    <Transaction>2011/10/14 11:15:34.734.dfm,D:\Focus\ProcuraProduto\Unit2.dfm=D:\Focus\ProcuraProduto\UBanco.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

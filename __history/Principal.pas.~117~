@@ -1,0 +1,187 @@
+unit Principal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, UCM, JvComponentBase, JvThread, MessageFunctions;
+
+type
+  TForm1 = class(TForm)
+    edtItem1: TEdit;
+    btnPesquisa: TSpeedButton;
+    btnLimpar: TSpeedButton;
+    lbl1: TLabel;
+    btnCadastrar: TBitBtn;
+    edtItem2: TEdit;
+    btnPesquisa2: TSpeedButton;
+    btnLimpar2: TSpeedButton;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    edtItem3: TEdit;
+    btnPesquisa3: TSpeedButton;
+    btnLimpar3: TSpeedButton;
+    edtItem4: TEdit;
+    btnPesquisa4: TSpeedButton;
+    btnLimpar4: TSpeedButton;
+    lbl5: TLabel;
+    edtItem5: TEdit;
+    btnPesquisa5: TSpeedButton;
+    btnLimpar5: TSpeedButton;
+    edtItem6: TEdit;
+    lbl6: TLabel;
+    btnPesquisa6: TSpeedButton;
+    btnLimpar6: TSpeedButton;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    lbl9: TLabel;
+    edtItem7: TEdit;
+    btnPesquisa7: TSpeedButton;
+    btnLimpar7: TSpeedButton;
+    edtItem8: TEdit;
+    btnPesquisa8: TSpeedButton;
+    btnLimpar8: TSpeedButton;
+    edtItem9: TEdit;
+    btnPesquisa9: TSpeedButton;
+    btnLimpar9: TSpeedButton;
+    lbl10: TLabel;
+    lbl11: TLabel;
+    lbl12: TLabel;
+    edtItem10: TEdit;
+    btnPesquisa10: TSpeedButton;
+    btnLimpar10: TSpeedButton;
+    edtItem11: TEdit;
+    btnPesquisa11: TSpeedButton;
+    btnLimpar11: TSpeedButton;
+    edtItem12: TEdit;
+    btnPesquisa12: TSpeedButton;
+    btnLimpar12: TSpeedButton;
+    lbl13: TLabel;
+    lbl14: TLabel;
+    lbl15: TLabel;
+    edtItem13: TEdit;
+    edtItem14: TEdit;
+    edtItem15: TEdit;
+    btnPesquisa13: TSpeedButton;
+    btnPesquisa14: TSpeedButton;
+    btnPesquisa15: TSpeedButton;
+    btnLimpar13: TSpeedButton;
+    btnLimpar14: TSpeedButton;
+    btnLimpar15: TSpeedButton;
+    btnSair: TBitBtn;
+    lbl16: TLabel;
+    lbl17: TLabel;
+    lbl18: TLabel;
+    edtItem16: TEdit;
+    btnPesquisa16: TSpeedButton;
+    btnLimpar16: TSpeedButton;
+    edtItem17: TEdit;
+    edtItem18: TEdit;
+    btnPesquisa17: TSpeedButton;
+    btnLimpar17: TSpeedButton;
+    btnPesquisa18: TSpeedButton;
+    btnLimpar18: TSpeedButton;
+    procedure btnLimparClick(Sender: TObject);
+
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure btnPesquisaClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnCadastrarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses UPesquisa, DUtilit;
+
+{$R *.dfm}
+
+
+
+procedure TForm1.btnCadastrarClick(Sender: TObject);
+var
+  I : Integer;
+begin
+  with CM do
+  begin
+    try
+      if not Query.IB_Transaction.InTransaction then
+        Query.IB_Transaction.StartTransaction;
+      Query.Close;
+      Query.SQL.Clear;
+      Query.SQL.Add('UPDATE PRODUTOS SET ITEM_ABATEDOURO = NULL WHERE COALESCE(ITEM_ABATEDOURO, 0) <> 0');
+      Query.ExecSQL;
+      Query.Close;
+      Query.SQL.Clear;
+      Query.SQL.Add('UPDATE PRODUTOS SET ITEM_ABATEDOURO = :ITEM_ABATEDOURO WHERE CD_PRODUTO = :CD_PRODUTO');
+      for I := 1 to 18 do
+      begin
+        if not Query.Prepared then Query.Prepare;
+        Query.ParamByName('ITEM_ABATEDOURO').AsSmallint:= I;
+        Query.ParamByName('CD_PRODUTO').AsSmallint:= TEdit(Self.FindComponent('edtItem'+IntToStr(I))).Tag;
+        Query.ExecSQL;
+      end;
+      Query.IB_Transaction.Commit;
+      MensagemDeInformacao('Update Concluído!', 'Sucesso!');
+    except
+      Query.IB_Transaction.Rollback;
+      MensagemDeErro('Ocorreu um erro ao fazer o Update!', 'Erro!', '', '');
+    end;
+  end;
+end;
+
+procedure TForm1.btnLimparClick(Sender: TObject);
+begin
+  TEdit(FindComponent('edtItem'+intToStr(TSpeedButton(Sender).Tag))).Clear;
+end;
+
+procedure TForm1.btnPesquisaClick(Sender: TObject);
+var
+  edt : TEdit;
+begin
+  Application.CreateForm(TfrmPesquisa, frmPesquisa);
+  frmPesquisa.ShowModal;
+  edt:= TEdit(FindComponent('edtItem'+intToStr(TSpeedButton(Sender).Tag)));
+  edt.Text:= frmPesquisa.edtDadosPesquisa.Text;
+  edt.Tag := frmPesquisa.edtDadosPesquisa.Tag;
+  FreeAndNil(frmPesquisa);
+end;
+
+procedure TForm1.btnSairClick(Sender: TObject);
+begin
+ Application.Terminate;
+end;
+
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  Case Key Of
+      VK_ESCAPE : Application.Terminate ;
+      VK_F1:
+          showmessage('a');
+  End;
+
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  with CM do
+  begin
+    ib_database.Disconnect;
+    ib_database.DatabaseName:= LeStringINI('Focus.ini', 'CONFIGURACOES', 'BancoDeDados', '');
+    ib_database.Username:= 'SYSDBA';
+    ib_database.Password:= 'masterkey';
+    ib_database.Connect;
+  end;
+end;
+
+
+end.

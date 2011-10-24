@@ -1,0 +1,23 @@
+unit UCM;
+
+interface
+
+uses
+  SysUtils, Classes;
+
+type
+  TCM = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CM: TCM;
+
+implementation
+
+{$R *.dfm}
+
+end.

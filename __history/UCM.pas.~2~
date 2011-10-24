@@ -1,0 +1,102 @@
+unit UCM;
+
+interface
+
+uses
+  SysUtils, Classes, DB, DBClient, IBODataset, Provider, IB_Components,
+  IB_Access;
+
+type
+  TCM = class(TDataModule)
+    ib_database: TIB_Database;
+    ib_transaction: TIB_Transaction;
+    Provider: TDataSetProvider;
+    IBOQuery: TIBOQuery;
+    CDS: TClientDataSet;
+    intgrfldCDSCD_PRODUTO: TIntegerField;
+    strngfldCDSNM_PRODUTO: TStringField;
+    strngfldCDSCOD_BARRAS: TStringField;
+    intgrfldCDSCD_GRUPO: TIntegerField;
+    strngfldCDSUNIDADE: TStringField;
+    strngfldCDSCX_COD_BARRA_CAIXA: TStringField;
+    bcdfldCDSCX_UNDCONVERSAO: TBCDField;
+    bcdfldCDSPESOLIQUIDO: TBCDField;
+    bcdfldCDSPESOBRUTO: TBCDField;
+    bcdfldCDSDESCONTOMAXIMO: TBCDField;
+    bcdfldCDSCOMISSAO: TBCDField;
+    smlntfldCDSBAL_COD_BALANCA: TSmallintField;
+    strngfldCDSBAL_GERARCODBALANCA: TStringField;
+    strngfldCDSLOCALIZACAO: TStringField;
+    strngfldCDSCLASSFISCAL: TStringField;
+    bcdfldCDSIPI: TBCDField;
+    bcdfldCDSPRECOCUSTO: TBCDField;
+    bcdfldCDSMARGEM: TBCDField;
+    bcdfldCDSPRECOVENDA: TBCDField;
+    dtfldCDSDT_ULTIMOREAJUSTE: TDateField;
+    bcdfldCDSPRECOVENDAANTERIOR: TBCDField;
+    bcdfldCDSPRECOCUSTOANTERIOR: TBCDField;
+    bcdfldCDSPDV_PRECOVENDA: TBCDField;
+    bcdfldCDSESTOQUEMINIMO: TBCDField;
+    strngfldCDSINATIVO: TStringField;
+    mfldCDSOBS: TMemoField;
+    blbfldCDSFOTO: TBlobField;
+    intgrfldCDSCD_SIMILAR: TIntegerField;
+    dtmfldCDSDT_CADASTRO: TDateTimeField;
+    dtmfldCDSULTIMAALTERACAO: TDateTimeField;
+    strngfldCDSFABRICANTE: TStringField;
+    strngfldCDSAPLICACAO: TStringField;
+    strngfldCDSTRESCASAS: TStringField;
+    strngfldCDSDIMENSOES: TStringField;
+    bcdfldCDSCX_VALORCAIXAPDV: TBCDField;
+    bcdfldCDSQUANTTROCA: TBCDField;
+    strngfldCDSEXPORTAR: TStringField;
+    strngfldCDSPRECOPROPESO: TStringField;
+    strngfldCDSDESCRICAO_ABREV: TStringField;
+    strngfldCDSCODIGO02: TStringField;
+    strngfldCDSCODIGO03: TStringField;
+    strngfldCDSCODIGO04: TStringField;
+    bcdfldCDSCUSTOMEDIO: TBCDField;
+    strngfldCDSTIPOCUSTO: TStringField;
+    bcdfldCDSULTIMOCUSTO: TBCDField;
+    strngfldCDSUND_FRACIONADA: TStringField;
+    bcdfldCDSUNDCONVERSAOENTRADA: TBCDField;
+    bcdfldCDSMARGEM2: TBCDField;
+    bcdfldCDSMARGEM3: TBCDField;
+    bcdfldCDSMARGEM4: TBCDField;
+    bcdfldCDSMARGEM5: TBCDField;
+    dtmfldCDSDT_EXP_PALM: TDateTimeField;
+    bcdfldCDSPRECO2: TBCDField;
+    bcdfldCDSPRECO3: TBCDField;
+    bcdfldCDSPRECO4: TBCDField;
+    bcdfldCDSPRECO5: TBCDField;
+    strngfldCDSCONTROLANUMSERIE: TStringField;
+    strngfldCDSUSAR_CD_VENDA_UNICO: TStringField;
+    intgrfldCDSCD_VENDA_UNICO: TIntegerField;
+    smlntfldCDSREF_PROMOCAO: TSmallintField;
+    strngfldCDSIMPORTWEB: TStringField;
+    dtmfldCDSDT_SINC_WEB: TDateTimeField;
+    bcdfldCDSALIQUOTA: TBCDField;
+    bcdfldCDSFRETECHEGADA: TBCDField;
+    bcdfldCDSFRETESAIDA: TBCDField;
+    intgrfldCDSCD_EMPRESA: TIntegerField;
+    dtmfldCDSDT_SINC_SELLER: TDateTimeField;
+    strngfldCDSPRODUCAOPROPRIA: TStringField;
+    smlntfldCDSTIPO_ITEM: TSmallintField;
+    strngfldCDSCST1: TStringField;
+    strngfldCDSCST2: TStringField;
+    strngfldCDSCST3: TStringField;
+    strngfldCDSCST4: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CM: TCM;
+
+implementation
+
+{$R *.dfm}
+
+end.

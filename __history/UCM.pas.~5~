@@ -1,0 +1,32 @@
+unit UCM;
+
+interface
+
+uses
+  SysUtils, Classes, DB, DBClient, IBODataset, Provider, IB_Components,
+  IB_Access;
+
+type
+  TCM = class(TDataModule)
+    ib_database: TIB_Database;
+    ib_transaction: TIB_Transaction;
+    Provider: TDataSetProvider;
+    IBOQuery: TIBOQuery;
+    CDS: TClientDataSet;
+    intgrfldCDSCD_PRODUTO: TIntegerField;
+    strngfldCDSNM_PRODUTO: TStringField;
+    strngfldCDSCOD_BARRAS: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CM: TCM;
+
+implementation
+
+{$R *.dfm}
+
+end.
